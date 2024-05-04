@@ -1,0 +1,2 @@
+# pacman-oukousin
+pacman
