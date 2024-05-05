@@ -55,17 +55,17 @@ function drawGameEnd() {
   if (gameOver || gameWin) {
     let text = "you Win!!";
     if (gameOver) {
-      text = "GameOver";
+      text = "Game Over";
     }
     ctx.fillStyle = "black";
-    ctx.fillRect(0, canvas.height / 3.2, canvas.width, 80);
+    ctx.fillRect(0, canvas.height / 2.5, canvas.width, 80);
     ctx.font = "80px comic sans";
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
     gradient.addColorStop("0", "magenta");
     gradient.addColorStop("0.5", "blue");
     gradient.addColorStop("1.0", "red");
     ctx.fillStyle = gradient;
-    ctx.fillText(text, 10, canvas.height / 2);
+    ctx.fillText(text, 50, canvas.height / 2);
   }
 }
 

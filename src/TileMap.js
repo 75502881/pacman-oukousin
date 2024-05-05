@@ -17,9 +17,14 @@ export default class TileMap {
     this.wall = new Image();
     this.wall.src = "../images/wall.png";
 
+    this.tnt = new Image();
+    this.tnt.src = "../images/tnt.png";
+
     this.powerDot = this.pinkDot;
     this.powerDotAnmationTimerDefault = 30;
     this.powerDotAnmationTimer = this.powerDotAnmationTimerDefault;
+
+    this.score = -10;
   }
 
   //1-wall
@@ -28,21 +33,35 @@ export default class TileMap {
   //5-empty-space
   //6-enemy
   //7-power dot
+  //2-tnt
   map = [
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 7, 1],
-    [1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 7, 0, 0, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 6, 1, 0, 1, 7, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
-    [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 6, 1],
-    [1, 0, 6, 0, 0, 0, 0, 7, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 7, 0, 0, 1, 1, 1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1],
+    [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 2, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 6, 6, 0, 7, 1, 0, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 0, 0, 0, 6, 6, 6, 6, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 7, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1],
+    [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1],
+    [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 7, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 7, 0, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1],
+    [1, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
   draw(ctx) {
+    document.getElementById("scoreId").textContent = this.score;
     //console.log("draw", ctx);
     for (let row = 0; row < this.map.length; row++) {
       for (let column = 0; column < this.map[row].length; column++) {
@@ -51,19 +70,21 @@ export default class TileMap {
           this.#drawWall(ctx, column, row, this.tileSize);
         } else if (tile === 0) {
           this.#drawDot(ctx, column, row, this.tileSize);
-        } else if (tile == 7) {
+        } else if (tile === 7) {
           this.#drawPowerDot(ctx, column, row, this.tileSize);
+        } else if (tile === 2) {
+          this.#drawTnt(ctx, column, row, this.tileSize);
         } else {
           this.#drawBlank(ctx, column, row, this.tileSize);
         }
         //開発用
-        ctx.strokeStyle = "yellow";
-        ctx.strokeRect(
-          column * this.tileSize,
-          row * this.tileSize,
-          this.tileSize,
-          this.tileSize
-        );
+        // ctx.strokeStyle = "yellow";
+        // ctx.strokeRect(
+        //   column * this.tileSize,
+        //   row * this.tileSize,
+        //   this.tileSize,
+        //   this.tileSize
+        // );
       }
     }
   }
@@ -71,6 +92,15 @@ export default class TileMap {
   #drawDot(ctx, column, row, size) {
     ctx.drawImage(
       this.yellowDot,
+      column * this.tileSize,
+      row * this.tileSize,
+      size,
+      size
+    );
+  }
+  #drawTnt(ctx, column, row, size) {
+    ctx.drawImage(
+      this.tnt,
       column * this.tileSize,
       row * this.tileSize,
       size,
@@ -209,6 +239,20 @@ export default class TileMap {
     if (Number.isInteger(row) && Number.isInteger(column)) {
       if (this.map[row][column] === 0) {
         this.map[row][column] = 5;
+        this.score += 10;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  eatTnt(x, y) {
+    const row = y / this.tileSize;
+    const column = x / this.tileSize;
+    if (Number.isInteger(row) && Number.isInteger(column)) {
+      if (this.map[row][column] === 2) {
+        this.map[row][column] = 5;
+        this.score -= 1000;
         return true;
       }
     }
@@ -222,6 +266,7 @@ export default class TileMap {
       const tile = this.map[row][column];
       if (tile === 7) {
         this.map[row][column] = 5;
+        this.score += 50;
         return true;
       }
     }

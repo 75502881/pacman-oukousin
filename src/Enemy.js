@@ -14,7 +14,7 @@ export default class Enemy {
       Math.random() * Object.keys(MovingDirection).length
     );
 
-    this.directionTimerDefault = this.#random(10, 50);
+    this.directionTimerDefault = this.#random(1, 0.5);
     this.directionTimer = this.directionTimerDefault;
 
     this.scaredAboutToExpireTimerDefault = 10;

@@ -23,6 +23,7 @@ export default class Pacman {
     this.timers = [];
 
     this.eatGhostSound = new Audio("../sounds/eat_ghost.wav");
+    this.eatTntSound = new Audio("../sounds/tnt.wav");
 
     this.madeFirstMove = false;
 
@@ -198,6 +199,9 @@ export default class Pacman {
   #eatDot() {
     if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
       this.wakaSound.play();
+    }
+    if (this.tileMap.eatTnt(this.x, this.y) && this.madeFirstMove) {
+      this.eatTntSound.play();
     }
   }
 
