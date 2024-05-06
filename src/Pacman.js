@@ -47,6 +47,8 @@ export default class Pacman {
     this.#eatDot();
     this.#eatPowerDot();
     this.#eatGhost(enemies);
+    this.#eatSuperGoldDot();
+    this.#eatTnt();
 
     const size = this.tileSize / 2;
     ctx.save();
@@ -200,8 +202,30 @@ export default class Pacman {
     if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
       this.wakaSound.play();
     }
+  }
+
+  #eatTnt() {
     if (this.tileMap.eatTnt(this.x, this.y) && this.madeFirstMove) {
       this.eatTntSound.play();
+    }
+  }
+
+  #eatSuperGoldDot() {
+    if (this.tileMap.eatSuperGoldDot(this.x, this.y)) {
+      this.eatGhostSound.play();
+      this.powerDotActive = true;
+      this.powerDotAboutToExpire = false;
+      this.timers.forEach((timer) => clearTimeout(timer));
+      this.timers = [];
+      let powerDotTimer = setTimeout(() => {
+        this.powerDotActive = false;
+        this.powerDotAboutToExpire = false;
+      }, 1000 * 12);
+      this.timers.push(powerDotTimer);
+      let powerDotAboutToExpireTimer = setTimeout(() => {
+        this.powerDotAboutToExpire = true;
+      }, 1000 * 3);
+      this.timers.push(powerDotAboutToExpireTimer);
     }
   }
 

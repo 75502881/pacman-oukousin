@@ -20,7 +20,11 @@ export default class TileMap {
     this.tnt = new Image();
     this.tnt.src = "../images/tnt.png";
 
+    this.superGoldDot = new Image();
+    this.superGoldDot.src = "../images/superGoldDot.png";
+
     this.powerDot = this.pinkDot;
+
     this.powerDotAnmationTimerDefault = 30;
     this.powerDotAnmationTimer = this.powerDotAnmationTimerDefault;
 
@@ -33,6 +37,7 @@ export default class TileMap {
   //5-empty-space
   //6-enemy
   //7-power dot
+  //3-super gold dot
   //2-tnt
   map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -56,7 +61,7 @@ export default class TileMap {
     [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 7, 0, 0, 1, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 7, 0, 0, 1],
     [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1],
-    [1, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
@@ -74,6 +79,8 @@ export default class TileMap {
           this.#drawPowerDot(ctx, column, row, this.tileSize);
         } else if (tile === 2) {
           this.#drawTnt(ctx, column, row, this.tileSize);
+        } else if (tile === 3) {
+          this.#drawGoldDot(ctx, column, row, this.tileSize);
         } else {
           this.#drawBlank(ctx, column, row, this.tileSize);
         }
@@ -98,6 +105,7 @@ export default class TileMap {
       size
     );
   }
+
   #drawTnt(ctx, column, row, size) {
     ctx.drawImage(
       this.tnt,
@@ -119,6 +127,10 @@ export default class TileMap {
       }
     }
     ctx.drawImage(this.powerDot, column * size, row * size, size, size);
+  }
+
+  #drawGoldDot(ctx, column, row, size) {
+    ctx.drawImage(this.superGoldDot, column * size, row * size, size, size);
   }
 
   #drawWall(ctx, column, row, size) {
@@ -240,6 +252,19 @@ export default class TileMap {
       if (this.map[row][column] === 0) {
         this.map[row][column] = 5;
         this.score += 10;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  eatSuperGoldDot(x, y) {
+    const row = y / this.tileSize;
+    const column = x / this.tileSize;
+    if (Number.isInteger(row) && Number.isInteger(column)) {
+      if (this.map[row][column] === 3) {
+        this.map[row][column] = 5;
+        this.score += 100;
         return true;
       }
     }
