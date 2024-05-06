@@ -1,5 +1,6 @@
-# pacman
+#pacman-oukousin
 
-This is a version of pacman created in pure javascript using a canvas without any game frameworks
-
-Checkout the full tutorial here https://www.youtube.com/watch?v=Tk48dQCdQ3E&ab_channel=CodingWithAdam
+this is a pacman with javascript and html only. 
+it's use the pacman-sourceCode made by 'Coding With Adam'.
+and I make that players can have more fun.
+try play it!!
