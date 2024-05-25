@@ -1,0 +1,378 @@
+*@* MINGW64 ~
+$ cd pacman-*k*sin/
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit
+Aborting commit due to empty commit message.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit -m pacman
+[develop eef1fda] pacman
+ 4 files changed, 50 insertions(+), 1 deletion(-)
+ create mode 100644 images/log/git.log
+ create mode 100644 images/superGoldDot.png
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Enumerating objects: 13, done.
+C*nting objects: 100% (13/13), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 106.32 KiB | 53.16 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To https://github.com/75502881/pacman-*k*sin.git
+   f5d5442..eef1fda  develop -> develop
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git cheak*t main
+git: 'cheak*t' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git check*t main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git commit -m pacman
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git push
+To https://github.com/75502881/pacman-*k*sin.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/75502881/pacman-*k*sin.git'
+hint: Updates were rejected because the remote contains work that y* do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. Y* may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note ab*t fast-forwards' in 'git push --help' for details.
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: C*nting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 1.00 KiB | 171.00 KiB/s, done.
+From https://github.com/75502881/pacman-*k*sin
+   d2bb596..d6ab69e  main       -> origin/main
+Updating d2bb596..d6ab69e
+Fast-forward
+ README.md | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git check*t develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push origin main:master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/75502881/pacman-*k*sin/pull/new/master
+remote:
+To https://github.com/75502881/pacman-*k*sin.git
+ * [new branch]      main -> master
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git check*t main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git commit
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git check*t develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+nothing to commit, working tree clean
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Merge made by the 'ort' strategy.
+ README.md | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit
+On branch develop
+Your branch is ahead of 'origin/develop' by 2 commits.
+  (use "git push" to publish y*r local commits)
+
+nothing to commit, working tree clean
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Enumerating objects: 4, done.
+C*nting objects: 100% (4/4), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 279 bytes | 279.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/75502881/pacman-*k*sin.git
+   eef1fda..b8da306  develop -> develop
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git stutas
+git: 'stutas' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git status
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+nothing to commit, working tree clean
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit -a
+Aborting commit due to empty commit message.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ ^C
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit -m pacman
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit -m pacman
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git commit -m pacman
+[develop 98da78a] pacman
+ 1 file changed, 1 insertion(+)
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$
+
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Enumerating objects: 7, done.
+C*nting objects: 100% (7/7), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 342 bytes | 342.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/75502881/pacman-*k*sin.git
+   b8da306..98da78a  develop -> develop
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git merge main
+Already up to date.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git push
+Everything up-to-date
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git cheakout main
+git: 'cheakout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git merge develop
+Updating d6ab69e..98da78a
+Fast-forward
+ images/log/git.log      |   0
+ images/superGoldDot.png | Bin 0 -> 108008 bytes
+ images/tnt.png          | Bin 0 -> 3774 bytes
+ index.html              |  17 +++++++-
+ s*nds/tnt.wav          | Bin 0 -> 294990 bytes
+ src/Enemy.js            |   2 +-
+ src/Game.js             |   7 ++--
+ src/Pacman.js           |  28 +++++++++++++
+ src/TileMap.js          | 108 +++++++++++++++++++++++++++++++++++++++---------
+ 9 files changed, 138 insertions(+), 24 deletions(-)
+ create mode 100644 images/log/git.log
+ create mode 100644 images/superGoldDot.png
+ create mode 100644 images/tnt.png
+ create mode 100644 sounds/tnt.wav
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ pwd
+/c/Users/*/pacman-*k*sin
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/75502881/pacman-*k*sin.git
+   d6ab69e..98da78a  main -> main
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git commit
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git commit -m pacman
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git add .
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git commit -m pacman
+[main 162b0f8] pacman
+ 1 file changed, 1 deletion(-)
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 24 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 331 bytes | 331.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/75502881/pacman-*k*sin.git
+   98da78a..162b0f8  main -> main
+
+*@* MINGW64 ~/pacman-*k*sin (main)
+$ git check*t develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+*@* MINGW64 ~/pacman-*k*sin (develop)
+$
