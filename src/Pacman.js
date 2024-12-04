@@ -7,7 +7,7 @@ export default class Pacman {
     this.tileSize = tileSize;
     this.tileMap = tileMap;
     this.velocity = velocity;
-
+//oushuhua
     this.currentMovingDirection = null;
     this.requestedMovingDirection = null;
 
