@@ -25,6 +25,7 @@ function gameLoop() {
 }
 
 function checkGameWin() {
+  //test oushuhua
   if (!gameWin) {
     gameWin = tileMap.didWin();
     if (gameWin) {
