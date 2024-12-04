@@ -15,7 +15,6 @@ const gameWinSound = new Audio("../sounds/gameWin.wav");
 
 function gameLoop() {
   //console.log("game loop");
-  //console.log("game loop");
   tileMap.draw(ctx);
   drawGameEnd();
   pacman.draw(ctx, pause(), enemies);
